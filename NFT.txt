@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Set the SOURCE_ADDRESS and DESTINATION_ADDRESS environment variables
+export SOURCE_ADDRESS="your_source_address"
+export DESTINATION_ADDRESS="your_destination_address"
+
+# Get the values of the environment variables
+source_address="$SOURCE_ADDRESS"
+destination_address="$DESTINATION_ADDRESS"
+
+# Check if both environment variables are set
+if [ -z "$source_address" ] || [ -z "$destination_address" ]; then
+    echo "One or both env vars are not set. Pls set both vars."
+    exit 1
+fi
+
+# Perform the chia-nft transfer
+chia-nft transfer -s "$source_address" -d "$destination_address"
+
+# Additional steps after the transfer
+# ...
+
+# Optionally, add a loop based on a condition
+# for example:
+# for ((i=1; i<=var1; i++)); do
+#     echo "Loop iteration $i for $source_address"
+# done
+
+# for ((i=1; i<=var2; i++)); do
+#     echo "Loop iteration $i for $destination_address"
+# done
